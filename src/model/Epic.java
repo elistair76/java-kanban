@@ -1,27 +1,20 @@
+package model;
+
+import service.TaskManager;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Epic extends Task {
-    private ArrayList<Integer> subtasksInEpic;
+    private ArrayList<Integer> subtaskIds;
 
     public Epic(String name, String description) {
         super(name, description, TaskStatus.NEW);
-        subtasksInEpic = new ArrayList<>();
+        subtaskIds = new ArrayList<>();
     }
 
     public ArrayList<Integer> getSubtasksInEpic() {
-        return subtasksInEpic;
-    }
-
-    @Override
-    public String toString() {
-        return "model.Epic{" +
-                "name='" + getName() + '\'' +
-                ", description='" + getDescription() + '\'' +
-                ", id=" + getId() +
-                ", status=" + getStatus() +
-                ", subtasksInEpic=" + subtasksInEpic +
-                '}';
+        return subtaskIds;
     }
 
     public void updateStatus(TaskManager taskManager) {
@@ -52,4 +45,16 @@ public class Epic extends Task {
             this.setStatus(TaskStatus.NEW);
         }
     }
+
+    @Override
+    public String toString() {
+        return "model.model.Epic{" +
+                "name='" + getName() + '\'' +
+                ", description='" + getDescription() + '\'' +
+                ", id=" + getId() +
+                ", status=" + getStatus() +
+                ", subtasksInEpic=" + subtaskIds +
+                '}';
+    }
+
 }

@@ -1,23 +1,25 @@
+package model;
+
 public class Subtask extends Task {
-    private int idEpic;
+    private int epicId;
 
     public Subtask(String name, String description, TaskStatus status, int idEpic) {
         super(name, description, status);
-        this.idEpic = idEpic;
+        this.epicId = idEpic;
     }
 
     public int getIdEpic() {
-        return idEpic;
+        return epicId;
     }
 
     @Override
     public String toString() {
-        return "model.Subtask{" +
+        return "model.model.Subtask{" +
                 "name='" + getName() + '\'' +
                 ", description='" + getDescription() + '\'' +
                 ", id=" + getId() +
                 ", status=" + getStatus() +
-                ", idEpic" + idEpic +
+                ", idEpic" + epicId +
                 '}';
     }
 }
