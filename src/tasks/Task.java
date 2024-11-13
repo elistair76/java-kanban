@@ -1,14 +1,16 @@
-package model;
+package tasks;
+
+import status.Status;
 
 import java.util.Objects;
 
 public class Task {
-    private String name; // название задачи, её суть
-    private String description; // описание задачи
-    private int id; // id задачи
-    private TaskStatus status; // статус задачи
+    protected String name;
+    protected String description;
+    protected int id;
+    protected Status status;
 
-    public Task(String name, String description, TaskStatus status) {
+    public Task(String name, String description, Status status) {
         this.name = name;
         this.description = description;
         this.status = status;
@@ -38,11 +40,11 @@ public class Task {
         this.id = id;
     }
 
-    public TaskStatus getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(TaskStatus status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 
@@ -65,7 +67,7 @@ public class Task {
 
     @Override
     public String toString() {
-        return "model.model.Task{" +
+        return getClass() + "{" +
                 "name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", id=" + id +
