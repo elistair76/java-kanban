@@ -63,20 +63,32 @@ public class InMemoryTaskManager implements TaskManager {
 
     @Override
     public Task getTaskById(int id) {
-        historyManager.add(tasks.get(id));
-        return tasks.get(id);
+        if (tasks.containsKey(id)) {
+            historyManager.add(tasks.get(id));
+            return tasks.get(id);
+        } else {
+            throw new IllegalArgumentException("Задачи с id " + id + " не существует.");
+        }
     }
 
     @Override
     public Task getEpicById(int id) {
-        historyManager.add(epics.get(id));
-        return epics.get(id);
+        if (epics.containsKey(id)) {
+            historyManager.add(epics.get(id));
+            return epics.get(id);
+        } else {
+            throw new IllegalArgumentException("Эпика с id " + id + " не существует.");
+        }
     }
 
     @Override
     public Task getSubtaskById(int id) {
-        historyManager.add(subtasks.get(id));
-        return subtasks.get(id);
+        if (subtasks.containsKey(id)) {
+            historyManager.add(subtasks.get(id));
+            return subtasks.get(id);
+        } else {
+            throw new IllegalArgumentException("Подзадачи с id " + id + " не существует.");
+        }
     }
 
     @Override
